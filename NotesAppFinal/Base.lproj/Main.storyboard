@@ -3,6 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -42,6 +43,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="H4c-99-cLp" kind="show" identifier="showNote" id="rW9-W3-ieG"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -50,12 +54,74 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="NOTES" id="5b5-Pc-DH4">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UnO-J4-88n"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UnO-J4-88n">
+                            <connections>
+                                <segue destination="30F-gA-pYi" kind="presentation" identifier="addItem" id="qXN-AJ-G1B"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btQ-GM-C31" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1064.8" y="27.436281859070466"/>
+        </scene>
+        <!--Note Details-->
+        <scene sceneID="6Ou-Pl-RmW">
+            <objects>
+                <viewController id="H4c-99-cLp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r9f-1J-pzx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ktI-7P-ARD">
+                                <rect key="frame" x="16" y="68" width="343" height="245"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Note Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RIu-WU-yjr">
+                                        <rect key="frame" x="8" y="8" width="327" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Note Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zk7-UM-iCb">
+                                        <rect key="frame" x="0.0" y="50" width="343" height="187"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0CM-ew-BIt">
+                                <rect key="frame" x="16" y="366" width="343" height="245"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kjn-Pr-K97">
+                                        <rect key="frame" x="8" y="8" width="327" height="229"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="jPw-vf-33q" appends="YES" id="c4b-If-B5s"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.83435120558375631" green="0.83435120558375631" blue="0.83435120558375631" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="nsU-2R-Kmf"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Note Details" id="VaN-m7-fSB">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Fvp-Vo-vLQ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ydh-kb-fW5"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rec-st-dYe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="jPw-vf-33q"/>
+            </objects>
+            <point key="canvasLocation" x="1916" y="26.53673163418291"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F6k-ez-pqi">
@@ -73,7 +139,29 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mus-sq-kHj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="125.59999999999999" y="27.436281859070466"/>
+            <point key="canvasLocation" x="238" y="27"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="glO-oL-kfE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="30F-gA-pYi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="X9x-hw-Sga"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aHz-b2-4uP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="H4c-99-cLp" kind="relationship" relationship="rootViewController" id="btE-jd-D2U"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kon-QT-R0r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1124" y="785"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rW9-W3-ieG"/>
+    </inferredMetricsTieBreakers>
 </document>
