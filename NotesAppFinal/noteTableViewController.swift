@@ -46,7 +46,9 @@ class noteTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "notesTableViewCell", for: indexPath)
 
-       
+        let note: Note = notes[indexPath.row]
+        cell.configureCell(note: note)
+        cell.backgroundColor = UIColor.clear
 
         return cell
     }
@@ -65,12 +67,40 @@ class noteTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
+        
+        tableView.reloadData()
     }
     
 
+    func retrieveNotes(){
+        managedObjectContext?.perform {
+            
+            self.fetchNotesFromCoreData { (notes) in
+                if let notes = notes {
+                    self.notes = notes
+                    self.tableView.reloadData()
+                }
+                
+            }
+            
+        }
+    }
 
+    func fetchNotesFromCoreData(completion: @escaping ([Note]?) -> Void) {
+        managedObjectContext?.perform {
+            var notes = [Note]()
+            let request: NSFetchRequest<Note> = Note.fetchRequest()
+            
+            do{
+                notes = try self.managedObjectContext!.fetch(request)
+                completion(notes)
+            }
+            
+            catch{
+                print(error)
+            }
+        }
+    }
 
 }
