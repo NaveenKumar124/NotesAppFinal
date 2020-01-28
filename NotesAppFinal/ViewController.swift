@@ -48,6 +48,23 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
         noteNameLabel.delegate = self
         noteDescriptionLabel.delegate = self
         
+        // Styles
+        noteInfoView.layer.shadowColor =  UIColor(red:0/255.0, green:0/255.0, blue:0/255.0, alpha: 1.0).cgColor
+        noteInfoView.layer.shadowOffset = CGSize(width: 0.75, height: 0.75)
+        noteInfoView.layer.shadowRadius = 1.5
+        noteInfoView.layer.shadowOpacity = 0.2
+        noteInfoView.layer.cornerRadius = 2
+        
+        noteImageViewView.layer.shadowColor =  UIColor(red:0/255.0, green:0/255.0, blue:0/255.0, alpha: 1.0).cgColor
+        noteImageViewView.layer.shadowOffset = CGSize(width: 0.75, height: 0.75)
+        noteImageViewView.layer.shadowRadius = 1.5
+        noteImageViewView.layer.shadowOpacity = 0.2
+        noteImageViewView.layer.cornerRadius = 2
+        
+        noteImageView.layer.cornerRadius = 2
+        
+        noteNameLabel.setBottomBorder()
+        
     }
     
     //Core Data

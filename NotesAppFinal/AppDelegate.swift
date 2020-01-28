@@ -12,23 +12,25 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         UINavigationBar.appearance().barTintColor = UIColor(red: 245.0/255.0, green: 79.0/255.0, blue: 80.0/255.0, alpha: 1.0)
         UINavigationBar.appearance().tintColor = UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 242.0/255.0, alpha: 1.0)
-        
+
         let color = UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 242.0/255.0, alpha: 1.0)
-        let font = UIFont(name: "Robot-Medium", size: 18)!
-        
-//        let attributes: [String: AnyObject] = [
-//            NSAttributedStringKey.font: font,
-//            NSAttributedStringkey.foregroundColor: color
-//        ]
-//
-//        UINavigationBar.appearance().titleTextAttributes = attributes
-//        UIApplication.shared.statusBarStyle = .lightContent
+        let font = UIFont(name: "Roboto-Medium", size: 18)!
+
+        let attributes: [NSAttributedString.Key: AnyObject] = [
+            NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): color,
+            NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue): font
+]
+
+UINavigationBar.appearance().titleTextAttributes = attributes
+
+UIApplication.shared.statusBarStyle = .lightContent
+
         
         return true
     }
@@ -43,7 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         
     }
-
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        self.saveContext()
+        
+    }
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
