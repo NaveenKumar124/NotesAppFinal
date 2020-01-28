@@ -101,5 +101,106 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
         
     }
     
+    //This function is called when we choose our photo and confirm our selection
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        self.dismiss(animated: true, completion: nil)
+        
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.noteImageView.image = image
+            
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+        
+    }
+
+    // Save
+    @IBAction func saveButtonWasPressed(_ sender: UIBarButtonItem) {
+        if noteNameLabel.text == "" || noteNameLabel.text == "NOTE NAME" || noteDescriptionLabel.text == "" || noteDescriptionLabel.text == "Note Description..." {
+            
+            let alertController = UIAlertController(title: "Missing Information", message:"You left one or more fields empty. Please make sure that all fields are filled before attempting to save.", preferredStyle: UIAlertController.Style.alert)
+            let OKAction = UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil)
+            
+            alertController.addAction(OKAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
+        
+        else {
+            if (isExisting == false) {
+                let noteName = noteNameLabel.text
+                let noteDescription = noteDescriptionLabel.text
+                
+                if let moc = managedObjectContext {
+                    let note = Note(context: moc)
+
+                    if let data = self.noteImageView.image!.jpegData(compressionQuality: 1.0) {
+                        note.noteImage = data as NSData as Data
+                    }
+                
+                    note.noteName = noteName
+                    note.noteDescription = noteDescription
+                
+                    saveToCoreData() {
+                        
+                        let isPresentingInAddFluidPatientMode = self.presentingViewController is UINavigationController
+                        
+                        if isPresentingInAddFluidPatientMode {
+                            self.dismiss(animated: true, completion: nil)
+                            
+                        }
+                        
+                        else {
+                            self.navigationController!.popViewController(animated: true)
+                            
+                        }
+
+                    }
+
+                }
+            
+            }
+            
+            else if (isExisting == true) {
+                
+                let note = self.note
+                
+                let managedObject = note
+                managedObject!.setValue(noteNameLabel.text, forKey: "noteName")
+                managedObject!.setValue(noteDescriptionLabel.text, forKey: "noteDescription")
+                
+                if let data = self.noteImageView.image!.jpegData(compressionQuality: 1.0) {
+                    managedObject!.setValue(data, forKey: "noteImage")
+                }
+                
+                do {
+                    try context.save()
+                    
+                    let isPresentingInAddFluidPatientMode = self.presentingViewController is UINavigationController
+                    
+                    if isPresentingInAddFluidPatientMode {
+                        self.dismiss(animated: true, completion: nil)
+                        
+                    }
+                        
+                    else {
+                        self.navigationController!.popViewController(animated: true)
+                        
+                    }
+
+                }
+                
+                catch {
+                    print("Failed to update existing note.")
+                }
+            }
+
+        }
+
+    }
+    
 }
 
