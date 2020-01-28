@@ -44,6 +44,23 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
             isEditing = true
         }
         
+        //Delegates
+        noteNameLabel.delegate = self
+        noteDescriptionLabel.delegate = self
+        
+    }
+    
+    //Core Data
+    func saveToCoreData(completion: @escaping ()-> Void){
+        managedObjectContext!.perform {
+            do{
+                try self.managedObjectContext?.save()
+                completion()
+                print("Note Saved")
+            }catch{
+                print(error)
+            }
+        }
     }
 
 
