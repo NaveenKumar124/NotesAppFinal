@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notesTableViewCell" rowHeight="124" id="OoD-Xo-wSg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noteeTableViewCell" rowHeight="124" id="OoD-Xo-wSg" customClass="noteTableViewCell" customModule="NotesAppFinal" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="124"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OoD-Xo-wSg" id="Q8k-2o-hyG">
@@ -70,6 +70,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="descriptionLabel" destination="nd0-pk-PZr" id="XDN-WE-1fM"/>
+                                    <outlet property="noteImageView" destination="0Jx-4C-U5j" id="z9j-Uy-oME"/>
+                                    <outlet property="noteNameLabel" destination="gvu-XX-xNr" id="hFE-zu-Qux"/>
+                                    <outlet property="shadowView" destination="yUE-1M-g9w" id="LEU-oZ-YY8"/>
                                     <segue destination="H4c-99-cLp" kind="show" identifier="showNote" id="rW9-W3-ieG"/>
                                 </connections>
                             </tableViewCell>

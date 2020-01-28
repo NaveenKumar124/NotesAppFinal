@@ -44,7 +44,7 @@ class noteTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "notesTableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "noteTableViewCell", for: indexPath)
 
         let note: Note = notes[indexPath.row]
         cell.configureCell(note: note)
