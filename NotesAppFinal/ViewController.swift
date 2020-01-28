@@ -202,5 +202,21 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
 
     }
     
+    // Cancel
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        let isPresentingInAddFluidPatientMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddFluidPatientMode {
+            dismiss(animated: true, completion: nil)
+            
+        }
+        
+        else {
+            navigationController!.popViewController(animated: true)
+            
+        }
+        
+    }
+    
 }
 
