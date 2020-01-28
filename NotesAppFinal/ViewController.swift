@@ -78,6 +78,27 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
             self.present(pickerController, animated: true, completion: nil)
         }
         
+        let photosLibraryAction = UIAlertAction(title: "Photos Library", style: .default){
+            (action) in
+            pickerController.sourceType = .photoLibrary
+            self.present(pickerController, animated: true, completion: nil)
+        }
+        
+        let savedPhotosAction = UIAlertAction(title: "Saved Photos Album", style: .default){
+            (action) in
+            pickerController.sourceType = .savedPhotosAlbum
+            self.present(pickerController, animated: true, completion: nil)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        
+        alertController.addAction(cameraAction)
+        alertController.addAction(photosLibraryAction)
+        alertController.addAction(savedPhotosAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+        
     }
     
 }
