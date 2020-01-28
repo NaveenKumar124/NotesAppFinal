@@ -14,6 +14,7 @@
 		4FE645E123DEC675006C10B9 /* NotesAppFinal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FE645DF23DEC675006C10B9 /* NotesAppFinal.xcdatamodeld */; };
 		4FE645E323DEC67D006C10B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FE645E223DEC67D006C10B9 /* Assets.xcassets */; };
 		4FE645E623DEC67D006C10B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FE645E423DEC67D006C10B9 /* LaunchScreen.storyboard */; };
+		4FE645EE23E036B4006C10B9 /* noteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE645ED23E036B4006C10B9 /* noteTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4FE645E223DEC67D006C10B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4FE645E523DEC67D006C10B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4FE645E723DEC67D006C10B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FE645ED23E036B4006C10B9 /* noteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noteTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				4FE645E423DEC67D006C10B9 /* LaunchScreen.storyboard */,
 				4FE645E723DEC67D006C10B9 /* Info.plist */,
 				4FE645DF23DEC675006C10B9 /* NotesAppFinal.xcdatamodeld */,
+				4FE645ED23E036B4006C10B9 /* noteTableViewController.swift */,
 			);
 			path = NotesAppFinal;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			files = (
 				4FE645DB23DEC675006C10B9 /* ViewController.swift in Sources */,
 				4FE645D723DEC675006C10B9 /* AppDelegate.swift in Sources */,
+				4FE645EE23E036B4006C10B9 /* noteTableViewController.swift in Sources */,
 				4FE645E123DEC675006C10B9 /* NotesAppFinal.xcdatamodeld in Sources */,
 				4FE645D923DEC675006C10B9 /* SceneDelegate.swift in Sources */,
 			);
