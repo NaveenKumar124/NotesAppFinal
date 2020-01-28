@@ -29,6 +29,8 @@ class noteTableViewCell: UITableViewCell {
     
     func configureCell(note: Note){
         self.noteNameLabel.text = note.noteName?.uppercased()
+        self.descriptionLabel.text = note.noteDescription
+        self.noteImageView.image = UIImage(data: note.noteImage! as Data)
     }
 
 }
