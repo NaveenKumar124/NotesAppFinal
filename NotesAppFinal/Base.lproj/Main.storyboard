@@ -178,7 +178,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rec-st-dYe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="jPw-vf-33q"/>
+                <tapGestureRecognizer id="jPw-vf-33q">
+                    <connections>
+                        <action selector="pickImageButtonWasPressed:" destination="H4c-99-cLp" id="uAv-U8-uxh"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1916" y="26.53673163418291"/>
         </scene>

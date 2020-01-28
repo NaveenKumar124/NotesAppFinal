@@ -63,6 +63,22 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
         }
     }
 
-
+    //Image Picker Function
+    @IBAction func pickImageButtonWasPressed(_ sender: Any) {
+        
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.allowsEditing = true
+        
+        let alertController = UIAlertController(title: "Add an Image", message: "Choose From", preferredStyle: .actionSheet)
+        
+        let cameraAction = UIAlertAction(title: "Camera", style: .default){
+            (action) in
+            pickerController.sourceType = .camera
+            self.present(pickerController, animated: true, completion: nil)
+        }
+        
+    }
+    
 }
 
