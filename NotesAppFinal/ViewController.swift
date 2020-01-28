@@ -102,10 +102,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
     }
     
     //This function is called when we choose our photo and confirm our selection
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         self.dismiss(animated: true, completion: nil)
         
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             self.noteImageView.image = image
             
         }
@@ -218,5 +218,46 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
         
     }
     
+// Text field
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+        
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+            
+        }
+        
+        return true
+        
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if (textView.text == "Note Description...") {
+            textView.text = ""
+            
+        }
+        
+    }
+    
 }
+
+//This extension is responsible for setting bottom border that we see on the text field in the app
+extension UITextField {
+    func setBottomBorder() {
+        self.borderStyle = .none
+        self.layer.backgroundColor = UIColor.white.cgColor
+        
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor(red: 245.0/255.0, green: 79.0/255.0, blue: 80.0/255.0, alpha: 1.0).cgColor
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        self.layer.shadowOpacity = 1.0
+        self.layer.shadowRadius = 0.0
+    }
+}
+
 

@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let font = UIFont(name: "Robot-Medium", size: 18)!
         
 //        let attributes: [String: AnyObject] = [
-//            NSFontAttributeName: font,
-//            NSForegroundColorAttributeName: color
+//            NSAttributedStringKey.font: font,
+//            NSAttributedStringkey.foregroundColor: color
 //        ]
 //
 //        UINavigationBar.appearance().titleTextAttributes = attributes
@@ -75,3 +75,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+let context = appDelegate.persistentContainer.viewContext
