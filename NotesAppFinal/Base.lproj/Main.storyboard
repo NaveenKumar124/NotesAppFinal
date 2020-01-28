@@ -98,7 +98,7 @@
         <!--Note Details-->
         <scene sceneID="6Ou-Pl-RmW">
             <objects>
-                <viewController id="H4c-99-cLp" sceneMemberID="viewController">
+                <viewController id="H4c-99-cLp" customClass="ViewController" customModule="NotesAppFinal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r9f-1J-pzx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -169,6 +169,13 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Fvp-Vo-vLQ"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ydh-kb-fW5"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="noteDescriptionLabel" destination="zk7-UM-iCb" id="VPp-90-nuY"/>
+                        <outlet property="noteImageView" destination="Kjn-Pr-K97" id="GXk-ZB-5bK"/>
+                        <outlet property="noteImageViewView" destination="0CM-ew-BIt" id="CX8-f3-ugH"/>
+                        <outlet property="noteInfoView" destination="ktI-7P-ARD" id="dLS-N3-GoH"/>
+                        <outlet property="noteNameLabel" destination="RIu-WU-yjr" id="dib-nz-h2v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rec-st-dYe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="jPw-vf-33q"/>
